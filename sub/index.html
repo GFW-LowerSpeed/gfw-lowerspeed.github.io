@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"
+        name="viewport" id="viewport" />
+    <script src="clipboard.min.js"></script>
+
+    <title>GFWLowerSpeed</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scrollbar-color: #6969dd #e0e0e0;
+            scrollbar-width: thin
+        }
+
+        body {
+            overflow: hidden;
+            margin: 0;
+            width: 100vw;
+            background: #fbfbfd;
+            font-family: SF Pro SC, SF Pro Display, SF Pro Icons, PingFang SC, Helvetica Neue, Helvetica, Arial, sans-serif;
+            justify-content: center;
+            align-items: center
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        iframe {
+            border: none
+        }
+
+        a,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        ul {
+            margin: 0;
+            padding: 0;
+            color: #1d1d1f
+        }
+
+        svg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100vw;
+        }
+
+
+
+        h1 {
+            font: 10vmin/0.8 "Libre Franklin";
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            color: #fbfbfd;
+            text-shadow: 0 0 5px #fff;
+            mix-blend-mode: overlay;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            transition: 3s ease-in-out;
+        }
+
+        .model {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: transparent;
+            transition: .3s ease-out;
+        }
+
+        .dilog-main {
+            height: 60%;
+            width: 90%;
+            min-height: 399px;
+            max-width: 399px;
+            min-width: 290px;
+            background: #fbfbfdc6;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .dialog-bottom::-webkit-scrollbar-thumb {
+            background-color: transparent;
+        }
+
+        .dialog-window {
+            height: 100%;
+            width: 80%;
+            margin: 28px auto;
+        }
+
+        .top {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: #28282b;
+        }
+
+        span {
+            color: #dd69d0e8;
+            font-size: 1.5rem;
+        }
+
+        .mid {
+            position: relative;
+        }
+
+        input {
+            width: 92%;
+            height: 22px;
+            background-color: rgb(255 255 255 / 52%);
+            border: none;
+            outline: none;
+            border-radius: 28px;
+            padding: 10px;
+            font-size: 1.1rem;
+            margin: 0 auto 18px auto;
+        }
+
+        .getBtnOut {
+            display: flex;
+        }
+
+        .getBtn {
+            height: 26px;
+            width: 62px;
+            background-color: #6969dd;
+            background-color: rgb(255 255 255 / 52%);
+            border-radius: 28px;
+            position: relative;
+            line-height: 26px;
+            text-align: center;
+            font-size: .86rem;
+            color: #28282b;
+            margin: 0 6px;
+        }
+
+        .bottom p {
+            font-size: .8rem;
+            margin-top: 8px;
+        }
+
+        .footer {
+            position: absolute;
+            font-size: .8rem;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 18px;
+        }
+
+        .hr1 {
+            height: 1px;
+            width: 66px;
+            background-color: #28282b;
+            border-radius: 66px;
+        }
+
+        .hr2 {
+            width: 38px;
+            margin: 11px 0 0 8px;
+        }
+
+        .mid h3 {
+            margin: 0 0 12px 8px;
+        }
+
+        .get2 {
+            width: 72px;
+        }
+    </style>
+    <div class="main">
+        <div class="start">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <radialGradient id="Gradient1" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
+                        <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite" />
+                        <stop offset="0%" stop-color="#ff0" />
+                        <stop offset="100%" stop-color="#ff00" />
+                    </radialGradient>
+                    <radialGradient id="Gradient2" cx="50%" cy="50%" fx="10%" fy="50%" r=".5">
+                        <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite" />
+                        <stop offset="0%" stop-color="#0ff" />
+                        <stop offset="100%" stop-color="#0ff0" />
+                    </radialGradient>
+                    <radialGradient id="Gradient3" cx="50%" cy="50%" fx="50%" fy="50%" r=".5">
+                        <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite" />
+                        <stop offset="0%" stop-color="#f0f" />
+                        <stop offset="100%" stop-color="#f0f0" />
+                    </radialGradient>
+                </defs>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient1)">
+                    <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite" />
+                    <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="17s"
+                        repeatCount="indefinite" />
+                </rect>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient2)">
+                    <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite" />
+                    <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="18s"
+                        repeatCount="indefinite" />
+                </rect>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#Gradient3)">
+                    <animate attributeName="x" dur="25s" values="0%;25%;0%" repeatCount="indefinite" />
+                    <animate attributeName="y" dur="26s" values="0%;25%;0%" repeatCount="indefinite" />
+                    <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="19s"
+                        repeatCount="indefinite" />
+                </rect>
+            </svg>
+
+            <!-- 使用遮罩 -->
+            <div class="model" id="model">
+                <div class="dilog-main">
+                    <div class="dialog-window">
+                        <!-- h  -->
+                        <div class="top">
+                            <h2><span>GFW</span>LowerSpeed</h2>
+                            <div class="hr1" style="margin-top: 6px;"></div>
+
+                        </div>
+
+                        <!-- btn and input -->
+                        <div class="mid">
+                            <h3>
+                                墙国减速器
+                            </h3>
+                            <div class="getBtnOut">
+                                <a href="clash://install-config?url=https://gfw-lowerspeed.github.io/sub/clash/" target="_blank">
+                                    <div class="getBtn get2" id="getBtn">
+                                        Clash
+                                    </div>
+                                </a>
+                                <div class="getBtn" id="copyBtn" data-clipboard-target="#a">
+                                    Base64
+                                </div>
+                            </div>
+                            <div class="hr1 hr2"></div>
+
+                        </div>
+
+
+                        
+                        <!-- describe -->
+                        <div class="bottom">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="footer">
+                    <p>Copyright © 19890604 by GFWLowerSpeed. </p>
+                </div>
+            </div>
+            <!-- model-end -->
+        </div>
+
+    </div>
+    
+    <div style="opacity: 0;">
+        <input type="text" id="a" value="https://gfw-lowerspeed.github.io/sub/base64/">
+    </div>
+</body>
+
+
+
+
+
+
+
+<script type="text/javascript">
+    //init
+    var clipboard = new ClipboardJS('#copyBtn');
+    //优雅降级:safari 版本号>=10,提示复制成功;否则提示需在文字选中后，手动选择“拷贝”进行复制
+    clipboard.on('success', function (e) {
+        alert('复制成功!')
+        e.clearSelection();
+    })
+</script>
+
+</html>
