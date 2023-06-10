@@ -6,6 +6,8 @@ log-level: info
 external-controller: :9090
 proxies:
   - {name: JP1-Ikuuu-50Gb, server: jp04-vm0.entry.srthdw.art, port: 447, type: vmess, uuid: 55619543-159a-3492-a2a0-f2e6c16c5a95, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: IE1-replit-10GB, server: gfwlsone.replitotwo.repl.co, port: 443, type: vmess, uuid: aeace1a7-ee69-472b-ab27-555d0a952c99, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: /aeace1a7-ee69-472b-ab27-555d0a952c99-vm, headers: {Host: gfwlsone.replitotwo.repl.co}}, udp: true}
+  - {name: US1-replit-10GB, server: threep.gfwlowerspeedth.repl.co, port: 443, type: vmess, uuid: 1d8d54db-6ad1-43a8-bde6-4c649844805f, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: /1d8d54db-6ad1-43a8-bde6-4c649844805f-vm, headers: {Host: threep.gfwlowerspeedth.repl.co}}, udp: true}
 proxy-groups:
   - name: Proxies
     type: select
@@ -39,8 +41,6 @@ proxy-groups:
     proxies:
       - Proxies
       - DIRECT
-      - HK
-      - TW
   - name: ChatGPT
     type: select
     proxies:
@@ -190,6 +190,7 @@ proxy-groups:
     proxies:
       - DIRECT
       - Proxies
+      - REJECT
       - url-test
       - fallback
       - load-balance
@@ -200,12 +201,16 @@ proxy-groups:
     tolerance: 50
     proxies:
       - JP1-Ikuuu-50Gb
+      - IE1-replit-10GB
+      - US1-replit-10GB
   - name: fallback
     type: fallback
     url: http://www.gstatic.com/generate_204
     interval: 180
     proxies:
       - JP1-Ikuuu-50Gb
+      - IE1-replit-10GB
+      - US1-replit-10GB
   - name: load-balance
     type: load-balance
     strategy: consistent-hashing
@@ -213,6 +218,8 @@ proxy-groups:
     interval: 180
     proxies:
       - JP1-Ikuuu-50Gb
+      - IE1-replit-10GB
+      - US1-replit-10GB
 rules:
  - DOMAIN-SUFFIX,ol.epicgames.com,DIRECT
  - DOMAIN-SUFFIX,dizhensubao.getui.com,DIRECT
